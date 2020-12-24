@@ -3,9 +3,11 @@ import ReactDOM from "react-dom";
 import ReactTooltip from "react-tooltip";
 import MapChart from "./components/MapChart"
 import "./App.css"
+//imports
 function App() {
   const [content, setContent] = useState("");
   const [polutants, setPolutants] = useState({data: {data:""},});
+  // state to keep population and air uality
   useEffect(() => {
     fetch(`https://api.waqi.info/feed/${content.split("—",1)}/?token=0933645295b75fe0b23dc7f573f4a43e64d2a1e3`)
                       .then(response => response.json())
@@ -13,10 +15,11 @@ function App() {
                       
                   
   }, [content])
-  
+  // requests
 
   return (
     <React.Fragment>
+    // fragment as a container
     
     <div className="container shadow-lg rounded p-0 mt-3 bg-dark">
       <MapChart className="l" setTooltipContent={setContent} />
